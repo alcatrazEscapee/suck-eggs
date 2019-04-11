@@ -1,0 +1,22 @@
+# Gradle
+*.bin
+/build/
+/.gradle/
+
+# IntelliJ
+/.idea/
+*.iml
+*.ipr
+*.iws
+*.iml
+
+# Python
+*.py
+
+# Production
+/out/
+/run/
+/libs/
+
+# Wiki
+/no-tree-punching.wiki/
