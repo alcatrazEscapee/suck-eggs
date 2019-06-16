@@ -7,3 +7,5 @@ You can still throw eggs by sneaking.
 Yeah.
 
 That's all folks.
+
+![A funny meme](icon.png)
