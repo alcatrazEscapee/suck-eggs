@@ -12,27 +12,24 @@ apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'idea'
 
-version = '1.2.0'
+version = "${mod_version}"
 group = 'com.alcatrazescapee.suckeggs' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "suckeggs-forge-${MC_VERSION}"
+archivesBaseName = "suckeggs-forge-${mc_version}"
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
 minecraft {
-    // MCP Mappings
-    mappings channel: 'snapshot', version: '20190619-1.14.2'
-    //makeObfSourceJar = false
+    mappings channel: 'snapshot', version: '20190828-1.14.3'
+    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
-    // Run configs
+    // Run configurations
     runs {
         client {
             workingDirectory project.file('run')
-
-            property 'forge.logging.markers', ''
             property 'forge.logging.console.level', 'debug'
-
             mods {
-                examplemod {
+                oreveins {
                     source sourceSets.main
                 }
             }
@@ -40,12 +37,9 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-
-            property 'forge.logging.markers', ''
             property 'forge.logging.console.level', 'debug'
-
             mods {
-                examplemod {
+                oreveins {
                     source sourceSets.main
                 }
             }
@@ -54,5 +48,12 @@ minecraft {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${MC_VERSION}-${FORGE_VERSION}"
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+}
+
+// Puts the mod version into the jar for mods.toml to read from
+jar {
+    manifest {
+        attributes "Implementation-Version": "${mod_version}"
+    }
 }

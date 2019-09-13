@@ -9,6 +9,8 @@ package com.alcatrazescapee.suckeggs;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
@@ -25,11 +27,14 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = SuckEggs.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class SuckEggs
 {
-    static final String MOD_ID = "suckeggs";
+    public static final String MOD_ID = "suckeggs";
+
+    private static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event)
     {
+        LOGGER.info("The below registry override is intended - nothing to worry about. :)");
         event.getRegistry().register(new NewEggItem().setRegistryName(new ResourceLocation("minecraft", "egg")));
     }
 
@@ -38,7 +43,7 @@ public class SuckEggs
     {
         NewEggItem()
         {
-            super(new Item.Properties().maxStackSize(16).group(ItemGroup.MATERIALS).food(new Food.Builder().hunger(0).saturation(0.01f).setAlwaysEdible().build()));
+            super(new Item.Properties().maxStackSize(16).group(ItemGroup.MATERIALS).food(new Food.Builder().hunger(0).saturation(0f).setAlwaysEdible().build()));
         }
 
         @Override
