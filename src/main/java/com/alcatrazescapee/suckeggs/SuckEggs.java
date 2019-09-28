@@ -1,7 +1,6 @@
 /*
- * Part of the Suck Eggs mod by AlcatrazEscapee
- * Work under Copyright. Licensed under the GPL-3.0.
- * See the project LICENSE.md for more information.
+ * Part of the Suck Eggs Mod by AlcatrazEscapee
+ * Work under Copyright. See the project LICENSE.md for details.
  */
 
 package com.alcatrazescapee.suckeggs;
