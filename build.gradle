@@ -61,13 +61,11 @@ jar {
     }
 }
 
-task setupCurseforge {
-    curseforge.apiKey = System.getenv('CURSEFORGE_API_KEY')
-    println 'Getting API key'
-}
-
-if (System.getenv('CURSEFORGE_API_KEY') != null) {
-    curseforge.dependsOn setupCurseforge
+task setupCurseforge << {
+    def apiKey = System.getenv('CURSEFORGE_API_KEY')
+    if (apiKey != null) {
+        curseforge.apiKey = apiKey
+    }
 }
 
 curseforge {
@@ -79,3 +77,5 @@ curseforge {
         addGameVersion "${mc_version}"
     }
 }
+
+tasks.curseforge.dependsOn setupCurseforge
