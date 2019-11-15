@@ -8,9 +8,12 @@ buildscript {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
     }
 }
+
+plugins {
+    id 'com.matthewprenger.cursegradle' version '1.4.0'
+    id 'idea'
+}
 apply plugin: 'net.minecraftforge.gradle'
-// Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
-apply plugin: 'idea'
 
 version = "${mod_version}"
 group = 'com.alcatrazescapee.suckeggs' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -55,5 +58,24 @@ dependencies {
 jar {
     manifest {
         attributes "Implementation-Version": "${mod_version}"
+    }
+}
+
+task setupCurseforge {
+    curseforge.apiKey = System.getenv('CURSEFORGE_API_KEY')
+    println 'Getting API key'
+}
+
+if (System.getenv('CURSEFORGE_API_KEY') != null) {
+    curseforge.dependsOn setupCurseforge
+}
+
+curseforge {
+    apiKey = ''
+    project {
+        id = '319258'
+        changelog = 'Testing automatic build and upload via github actions!'
+        releaseType = 'alpha'
+        addGameVersion "${mc_version}"
     }
 }
