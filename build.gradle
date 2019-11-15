@@ -61,21 +61,20 @@ jar {
     }
 }
 
-task setupCurseforge << {
-    def apiKey = System.getenv('CURSEFORGE_API_KEY')
-    if (apiKey != null) {
-        curseforge.apiKey = apiKey
-    }
-}
-
 curseforge {
-    apiKey = ''
+    def envApiKey = System.getenv('CURSEFORGE_API_KEY')
+    if (envApiKey == null) {
+        println 'Unable to locate api key in env variable'
+        return
+    }
     project {
+        apiKey = envApiKey
         id = '319258'
         changelog = 'Testing automatic build and upload via github actions!'
         releaseType = 'alpha'
         addGameVersion "${mc_version}"
     }
+    options {
+        debug = true
+    }
 }
-
-tasks.curseforge.dependsOn setupCurseforge
