@@ -70,8 +70,8 @@ curseforge {
     project {
         apiKey = envApiKey
         id = '319258'
-        changelog = 'Testing automatic build and upload via github actions!'
-        releaseType = 'alpha'
+        changelog = file('changelog.txt')
+        releaseType = 'release'
         addGameVersion "${mc_version}"
     }
 }
