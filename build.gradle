@@ -74,7 +74,4 @@ curseforge {
         releaseType = 'alpha'
         addGameVersion "${mc_version}"
     }
-    options {
-        debug = true
-    }
 }
