@@ -49,7 +49,7 @@ public class SuckEggs
         @Nonnull
         public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn)
         {
-            if (playerIn.isSneaking())
+            if (playerIn.isShiftKeyDown())
             {
                 return super.onItemRightClick(worldIn, playerIn, handIn);
             }

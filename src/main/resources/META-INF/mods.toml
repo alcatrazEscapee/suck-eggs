@@ -1,7 +1,7 @@
 
 # Loader metadata
 modLoader="javafml"
-loaderVersion="[28,)"
+loaderVersion="[31,)"
 issueTrackerURL="https://github.com/alcatrazEscapee/suck-eggs/issues" #optional
 
 [[mods]]
@@ -21,13 +21,13 @@ issueTrackerURL="https://github.com/alcatrazEscapee/suck-eggs/issues" #optional
 [[dependencies.suckeggs]]
     modId="forge" #mandatory
     mandatory=true #mandatory
-    versionRange="[28,)" #mandatory
+    versionRange="[31,)" #mandatory
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.suckeggs]]
     modId="minecraft" #mandatory
     mandatory=true #mandatory
-    versionRange="[1.14.4,)" #mandatory
+    versionRange="[1.15.2,)" #mandatory
     ordering="NONE"
     side="BOTH"
