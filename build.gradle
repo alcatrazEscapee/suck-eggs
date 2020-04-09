@@ -79,7 +79,7 @@ curseforge {
     project {
         apiKey = envApiKey
         id = '319258'
-        changelog = file('changelog.txt')
+        changelog = '[This was an automatic build. For changelogs, see https://github.com/alcatrazEscapee/suck-eggs/releases]'
         releaseType = 'release'
         addGameVersion "${mc_version}"
     }
