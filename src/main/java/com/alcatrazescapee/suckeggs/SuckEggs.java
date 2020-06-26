@@ -5,22 +5,21 @@
 
 package com.alcatrazescapee.suckeggs;
 
-import javax.annotation.Nonnull;
-import javax.annotation.ParametersAreNonnullByDefault;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 @Mod(SuckEggs.MOD_ID)
 @Mod.EventBusSubscriber(modid = SuckEggs.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -49,22 +48,18 @@ public class SuckEggs
         @Nonnull
         public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn)
         {
-            if (playerIn.isShiftKeyDown())
-            {
+            if (playerIn.isSneaking()) {
                 return super.onItemRightClick(worldIn, playerIn, handIn);
-            }
-            else
-            {
+            } else {
                 ItemStack itemstack = playerIn.getHeldItem(handIn);
                 //noinspection ConstantConditions
-                if (playerIn.canEat(getFood().canEatWhenFull()))
-                {
+                if (playerIn.canEat(getFood().canEatWhenFull())) {
                     playerIn.setActiveHand(handIn);
-                    return new ActionResult<>(ActionResultType.SUCCESS, itemstack);
+                    return ActionResult.resultSuccess(itemstack);
                 }
                 else
                 {
-                    return new ActionResult<>(ActionResultType.FAIL, itemstack);
+                    return ActionResult.resultFail(itemstack);
                 }
             }
         }
@@ -76,5 +71,4 @@ public class SuckEggs
             return stack;
         }
     }
-
 }
