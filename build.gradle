@@ -61,7 +61,7 @@ curseforge {
     project {
         apiKey = envApiKey
         id = '319258'
-        changelog = "[Release Notes ${version}](https://github.com/alcatrazEscapee/ore-veins/releases/tag/v${version})"
+        changelog = "[Release Notes ${version}](https://github.com/alcatrazEscapee/ore-veins/releases/tag/v${version}-fabric)"
         changelogType = "markdown"
         releaseType = 'beta'
         addGameVersion "${mc_version}"

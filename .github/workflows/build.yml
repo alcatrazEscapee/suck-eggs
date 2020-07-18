@@ -22,7 +22,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         result-encoding: string
         script: |
-         return '${{ github.ref }}'.replace('refs/tags/v', '');
+         return '${{ github.ref }}'.replace('refs/tags/v', '').replace('-fabric', '');
     - name: Build
       run: ./gradlew build
       env:
