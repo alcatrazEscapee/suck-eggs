@@ -1,6 +1,5 @@
 plugins {
 	id 'fabric-loom' version '0.4-SNAPSHOT'
-    id 'com.matthewprenger.cursegradle' version '1.4.0'
     id 'idea'
 }
 
@@ -9,17 +8,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 archivesBaseName = 'suckeggs-fabric-1.16.1'
 group = 'com.alcatrazescapee.suckeggs'
-
-/**
- * Version in dev is set to 'dev'
- * Any builds produced by the github actions build script will have a version matching their tag.
- * All version numbers should be Semantic Versioning 2.0 compliant
- */
-if (System.getenv('VERSION') != null) {
-    version = System.getenv('VERSION')
-} else {
-    version = 'dev'
-}
+version = '1.0.0'
 
 dependencies {
 	//to change the versions see the gradle.properties file
@@ -50,20 +39,4 @@ tasks.withType(JavaCompile) {
 
 jar {
 	from "LICENSE.md"
-}
-
-curseforge {
-    def envApiKey = System.getenv('CURSEFORGE_API_KEY')
-    if (envApiKey == null) {
-        println 'Unable to locate api key in env variable'
-        return
-    }
-    project {
-        apiKey = envApiKey
-        id = '319258'
-        changelog = "[Release Notes ${version}](https://github.com/alcatrazEscapee/ore-veins/releases/tag/v${version}-fabric)"
-        changelogType = "markdown"
-        releaseType = 'beta'
-        addGameVersion "${project.minecraft_version}"
-    }
 }
