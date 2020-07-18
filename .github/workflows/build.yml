@@ -33,7 +33,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: v${{ steps.get_version.outputs.result }}
+        tag_name: v${{ steps.get_version.outputs.result }}-fabric
         release_name: (Fabric) Suck Eggs 1.16.1-${{ steps.get_version.outputs.result }}
         body: |
           [This was an automatic build]
