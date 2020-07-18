@@ -46,7 +46,11 @@ public abstract class EggItemMixin extends Item
     @Override
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user)
     {
-        return this.isFood() ? user.eatFood(world, stack.copy()) : stack;
+        if (isFood())
+        {
+            user.eatFood(world, stack.copy());
+        }
+        return stack;
     }
 
     @Override

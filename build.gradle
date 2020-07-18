@@ -8,7 +8,7 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 archivesBaseName = 'suckeggs-fabric-1.16.1'
 group = 'com.alcatrazescapee.suckeggs'
-version = '1.0.0'
+version = '1.0.1'
 
 dependencies {
 	//to change the versions see the gradle.properties file
