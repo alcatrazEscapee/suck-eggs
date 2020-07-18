@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "suckeggs",
+  "version": "${version}",
+  "name": "Suck Eggs",
+  "description": "You can now suck eggs. Yeah. That's basically it.",
+  "authors": [
+    "AlcatrazEscapee"
+  ],
+  "contact": {
+    "homepage": "https://minecraft.curseforge.com/projects/suck-eggs",
+    "sources": "https://github.com/alcatrazEscapee/suck-eggs"
+  },
+  "license": "MIT",
+  "icon": "assets/suckeggs/icon.png",
+  "environment": "*",
+  "mixins": [
+    "suckeggs.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  }
+}
